@@ -91,7 +91,6 @@ const LoginModal = () => {
                                 <FormError message={error}/>
                                 <FormSuccess message={success}/>
                                 <div className={"pt-6 space-x-2 flex items-center justify-end w-full"}>
-
                                     <Button disabled={isPending}  type={"submit"}>Connexion</Button>
                                 </div>
                             </form>

@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import {Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle} from "@/components/ui/dialog";
 import React from "react";
@@ -10,6 +10,7 @@ interface ModalProps {
     onClose: () => void;
     children?: React.ReactNode;
 }
+
 
 export const Modal: React.FC<ModalProps> = ({
                                                 title,

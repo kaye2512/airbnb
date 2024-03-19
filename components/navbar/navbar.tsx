@@ -4,15 +4,15 @@ import Container from "../../../airbnb/components/ui/container";
 import Logo from "./logo";
 import SearchFilter from "./search-filter";
 import UserMenu from "./user-menu";
-import {User} from "@prisma/client";
 import Categories from "@/components/navbar/categories";
+import {SafeUser} from "@/types";
 
 interface NavbarProps {
-    currentUser?: User | null;
+    currentUser?: SafeUser | null
 }
 
 const Navbar: React.FC<NavbarProps> = ({currentUser}) => {
-    console.log(currentUser)
+
     return (
         <div className={"fixed w-full bg-white z-10 shadow-sm"}>
             <div className={"py-4 border-b-[1px]"}>

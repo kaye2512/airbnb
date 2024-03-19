@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
-import LoginModal from "@/components/login-modal";
+import LoginModal from "@/components/modals/login-modal";
 import ToasterProvider from "@/providers/toaster-provider";
-import RegisterModal from "@/components/register-modal";
-import GetCurrentUser from "@/actions/getCurrentUser";
+import RegisterModal from "@/components/modals/register-modal";
 import {SessionProvider} from "next-auth/react";
 import RentModal from "@/components/modals/rent-modal";
+import getCurrentUser from "@/actions/get-current-user";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -22,7 +22,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-    const currentUser = await GetCurrentUser();
+    const currentUser = await getCurrentUser();
 
   return (
     <html lang="en">

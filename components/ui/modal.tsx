@@ -12,6 +12,7 @@ interface ModalProps {
 }
 
 
+
 export const Modal: React.FC<ModalProps> = ({
                                                 title,
                                                 description,

@@ -9,10 +9,11 @@ import useLoginModal from "../../../airbnb/hooks/use-login-modal";
 import {User} from "@prisma/client";
 import {signOut, useSession} from "next-auth/react";
 import useRentModal from "@/hooks/use-rent-modal";
+import {SafeUser} from "@/types";
 
 
 interface UserMenuProps {
-    currentUser?: User | null
+    currentUser?: SafeUser | null
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {

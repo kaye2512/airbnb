@@ -2,7 +2,7 @@
 import {auth} from "@/auth";
 import prisma from "@/lib/prismadb";
 
-export default async function GetCurrentUser () {
+export default async function getCurrentUser () {
     try {
         const session = await auth()
         if (!session?.user?.email) {
@@ -19,7 +19,13 @@ export default async function GetCurrentUser () {
             return null
         }
 
-        return currentUser
+        return {
+            ...currentUser,
+            createdAt: currentUser.createdAt.toISOString(),
+            updatedAt: currentUser.updatedAt.toISOString(),
+            emailVerified:
+                currentUser.emailVerified?.toISOString() || null,
+        }
     }catch (error: any) {
         return null;
     }

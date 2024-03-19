@@ -20,7 +20,7 @@ const RegisterModal = () => {
     const loginModal = useLoginModal();
 
     const form = useForm<z.infer<typeof RegisterSchema>>({
-        resolver: zodResolver(LoginSchema),
+        resolver: zodResolver(RegisterSchema),
         defaultValues: {
             name: "",
             email: "",
@@ -65,6 +65,7 @@ const RegisterModal = () => {
                                                 <Input
                                                     disabled={loading}
                                                     placeholder={"Name"}
+                                                    type={"text"}
                                                     {...field}/>
                                             </FormControl>
                                             <FormMessage/>
@@ -82,6 +83,7 @@ const RegisterModal = () => {
                                                 <Input
                                                     disabled={loading}
                                                     placeholder={"Email"}
+                                                    type={"email"}
                                                     {...field}/>
                                             </FormControl>
                                             <FormMessage/>

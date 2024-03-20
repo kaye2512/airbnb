@@ -3,6 +3,7 @@ import EmptyState from "@/components/empty-state";
 import getListings from "@/actions/get-listings";
 import ListingCard from "@/components/listings/listing-card";
 import getCurrentUser from "@/actions/get-current-user";
+import getReservations from "@/actions/get-reservations";
 
 
 const Home = async () => {

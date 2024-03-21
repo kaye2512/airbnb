@@ -8,6 +8,7 @@ import RegisterModal from "@/components/modals/register-modal";
 import {SessionProvider} from "next-auth/react";
 import RentModal from "@/components/modals/rent-modal";
 import getCurrentUser from "@/actions/get-current-user";
+import SearchModal from "@/components/modals/search-modal";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default async function RootLayout({
       <body className={nunito.className}>
       <SessionProvider>
           <ToasterProvider/>
+          <SearchModal/>
           <RentModal/>
           <LoginModal/>
           <RegisterModal/>

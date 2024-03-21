@@ -6,10 +6,10 @@ import {useCallback, useState} from "react";
 import MenuItem from "./menu-item";
 import useRegisterModal from "../../../airbnb/hooks/use-register-modal";
 import useLoginModal from "../../../airbnb/hooks/use-login-modal";
-import {User} from "@prisma/client";
 import {signOut, useSession} from "next-auth/react";
 import useRentModal from "@/hooks/use-rent-modal";
 import {SafeUser} from "@/types";
+import {useRouter} from "next/navigation";
 
 
 interface UserMenuProps {
@@ -18,6 +18,7 @@ interface UserMenuProps {
 
 const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
 
+    const router = useRouter()
     const [isOpen, setIsOpen] = useState(false)
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
@@ -69,18 +70,18 @@ const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
                         {/*condition si l'utilisateur est connecté show l'utilisateur menu if not show login and sign up*/}
                         {currentUser ? (
                             <>
-                                <MenuItem onClick={() => {}} label={"My trips"}/>
-                                <MenuItem onClick={() => {}} label={"My favorites"}/>
-                                <MenuItem onClick={() => {}} label={"My reservations"}/>
-                                <MenuItem onClick={() => {}} label={"My properties"}/>
+                                <MenuItem onClick={() => router.push('/trips')} label={"Mon séjour"}/>
+                                <MenuItem onClick={() => router.push('/favorites')} label={"Mes favoris"}/>
+                                <MenuItem onClick={() => router.push('/reservations')} label={"Mes reservations"}/>
+                                <MenuItem onClick={() => router.push('/properties')} label={"Mes Maisons"}/>
                                 <MenuItem onClick={rentModal.onOpen} label={"Airbnb my home"}/>
                                 <hr/>
                                 <MenuItem onClick={onCLick} label={"Deconnexion"}/>
                             </>
                         ): (
                             <>
-                                <MenuItem onClick={loginModal.onOpen} label={"Login"}/>
-                                <MenuItem onClick={registerModal.onOpen} label={"Sign up"}/>
+                                <MenuItem onClick={loginModal.onOpen} label={"Connexion"}/>
+                                <MenuItem onClick={registerModal.onOpen} label={"Deconnexion"}/>
                             </>
                         )}
 

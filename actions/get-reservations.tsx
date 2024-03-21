@@ -9,7 +9,7 @@ interface IParams {
 export default async function getReservations(
     params: IParams
 ) {
-
+    try{
         const { listingId, userId, authorId } = params;
 
         const query: any = {};
@@ -26,7 +26,7 @@ export default async function getReservations(
             query.listing = { userId: authorId };
         }
 
-    const reservations = await prismadb.reservation.findMany({
+        const reservations = await prismadb.reservation.findMany({
             where: query,
             include: {
                 listing: true
@@ -49,5 +49,9 @@ export default async function getReservations(
             }));
 
         return safeReservations;
+    }catch (error: any) {
+        throw new Error(error);
+    }
+
 
 }

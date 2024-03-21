@@ -1,20 +1,23 @@
 import Container from "@/components/ui/container";
 import EmptyState from "@/components/empty-state";
-import getListings from "@/actions/get-listings";
+import getListings, {IListingsParams} from "@/actions/get-listings";
 import ListingCard from "@/components/listings/listing-card";
 import getCurrentUser from "@/actions/get-current-user";
-import getReservations from "@/actions/get-reservations";
 
 
-const Home = async () => {
+interface HomesProps {
+    searchParams: IListingsParams
+}
+const Home = async ({searchParams}: HomesProps) => {
 
-    const listings = await getListings();
+    const listings = await getListings(searchParams);
     const currentUser = await getCurrentUser();
     if (listings.length === 0) {
         return (
             <EmptyState showReset />
         );
     }
+
 
     return (
         <>

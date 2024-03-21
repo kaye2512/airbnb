@@ -23,77 +23,77 @@ export const categories = [
     {
         label: 'Beach',
         icon: TbBeach,
-        description: 'This property is close to the beach'
+        description: 'cette propriété est proche de la mer'
     },
     {
         label: 'Windmills',
         icon: GiWindmill,
-        description: 'This property has windmills'
+        description: 'cette propriété est moderne'
     },
     {
         label: 'Modern',
         icon: MdOutlineVilla,
-        description: 'This property has windmills'
+        description: 'cette propriété a une piscine'
     },
     {
         label: 'Countryside',
         icon: TbMountain,
-        description: 'This property is in the countryside'
+        description: "cette propriété est proche d'un village"
     },
     {
         label: 'Pools',
         icon: TbPool,
-        description: 'This property has a pool'
+        description: 'cette propriété a une piscine'
     },
     {
         label: 'Islands',
         icon: GiIsland,
-        description: 'This property is on island'
+        description: 'cette propriété est dans une ile'
     },
     {
         label: 'Lake',
         icon: GiBoatFishing,
-        description: 'This property is close to a lake'
+        description: "cette propriété est proche d'un lac"
     },
     {
         label: 'Skiing',
         icon: FaSkiing,
-        description: 'This property has skiing activities'
+        description: "cette propriété a une activé de sky"
     },
     {
         label: 'Castles',
         icon: GiCastle,
-        description: 'This property is in a castle'
+        description: "cette propriété est dans un chateau"
     },
     {
         label: 'Camping',
         icon: GiForestCamp,
-        description: 'This property has camping activities'
+        description: "cette propriété a une activé de camping"
     },
     {
         label: 'Arctic',
         icon: BsSnow,
-        description: 'This property has camping activities'
+        description: "cette propriété a une activé de camping"
     },
     {
         label: 'Cave',
         icon: GiCaveEntrance,
-        description: 'This property is in a cave'
+        description: "cette propriété est dans un cave"
     },
     {
         label: 'Desert',
         icon: GiCactus,
-        description: 'This property is in desert'
+        description: "cette propriété est dans un desert"
     },
     {
         label: 'Barns',
         icon: GiBarn,
-        description: 'This property is in the barn'
+        description: "cette propriété est un choix"
     },
     {
         label: 'Lux',
         icon: IoDiamond,
-        description: 'This property is luxurious'
+        description: "cette propriété est luxueux"
     },
 
 ]

@@ -26,6 +26,7 @@ interface ListingClientProps {
     }
     currentUser?: SafeUser | null
 }
+
 const ListingClient: React.FC<ListingClientProps> = ({
     listing,
     reservations = [],
@@ -68,14 +69,15 @@ const ListingClient: React.FC<ListingClientProps> = ({
         }).then(() => {
             toast.success('Listing reserved!')
             setDateRange(initialDateRange);
-            // Redirect to trips
+            router.push('/trips')
+            router.refresh()
         }).catch(() => {
             toast.error('Something went wrong')
         }).finally(() => {
             setIsLoading(false)
         })
 
-    },[totalPrice, dateRange, listing?.id, currentUser, loginModal])
+    },[totalPrice, dateRange, listing?.id, currentUser, loginModal, router])
 
     useEffect(() => {
         if(dateRange.startDate && dateRange.endDate){

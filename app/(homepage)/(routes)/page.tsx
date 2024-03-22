@@ -3,6 +3,7 @@ import EmptyState from "@/components/empty-state";
 import getListings, {IListingsParams} from "@/actions/get-listings";
 import ListingCard from "@/components/listings/listing-card";
 import getCurrentUser from "@/actions/get-current-user";
+import {auth} from "@/auth";
 
 
 interface HomesProps {

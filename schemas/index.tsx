@@ -1,4 +1,6 @@
 import * as z from "zod";
+import {ZodType} from "zod";
+import {FormData} from "@/types/types";
 
 
 export const SettingsSchema = z.object({
@@ -51,7 +53,7 @@ export const LoginSchema = z.object({
     code: z.optional(z.string()),
 });
 
-export const RegisterSchema = z.object({
+export const RegisterSchema: ZodType<FormData> = z.object({
     name: z.string().min(1, {
         message: "Name is required",
     }),

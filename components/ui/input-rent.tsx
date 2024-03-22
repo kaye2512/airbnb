@@ -1,22 +1,11 @@
 'use client';
 
-import {
-    FieldErrors,
-    FieldValues,
-    UseFormRegister
-} from "react-hook-form";
 import { BiDollar } from "react-icons/bi";
+import {InputProps} from "@/types/types";
 
-interface InputProps {
-    id: string;
-    label: string;
-    type?: string;
-    disabled?: boolean;
-    formatPrice?: boolean;
-    required?: boolean;
-    register: UseFormRegister<FieldValues>,
-    errors: FieldErrors
-}
+
+
+
 
 const InputRent: React.FC<InputProps> = ({
                                          id,
@@ -25,7 +14,6 @@ const InputRent: React.FC<InputProps> = ({
                                          disabled,
                                          formatPrice,
                                          register,
-                                         required,
                                          errors,
                                      }) => {
     return (
@@ -44,7 +32,7 @@ const InputRent: React.FC<InputProps> = ({
             <input
                 id={id}
                 disabled={disabled}
-                {...register(id, { required })}
+                {...register(label)}
                 placeholder=" "
                 type={type}
                 className={`
@@ -61,10 +49,11 @@ const InputRent: React.FC<InputProps> = ({
           disabled:opacity-70
           disabled:cursor-not-allowed
           ${formatPrice ? 'pl-9' : 'pl-4'}
-          ${errors[id] ? 'border-rose-500' : 'border-neutral-300'}
-          ${errors[id] ? 'focus:border-rose-500' : 'focus:border-black'}
+          ${errors ? 'border-rose-500' : 'border-neutral-300'}
+          ${errors ? 'focus:border-rose-500' : 'focus:border-black'}
         `}
             />
+            {errors && <span className="error-message text-red-400">{errors.message}</span>}
             <label
                 className={`
           absolute 
@@ -80,7 +69,7 @@ const InputRent: React.FC<InputProps> = ({
           peer-placeholder-shown:translate-y-0 
           peer-focus:scale-75
           peer-focus:-translate-y-4
-          ${errors[id] ? 'text-rose-500' : 'text-zinc-400'}
+          ${errors ? 'text-rose-500' : 'text-zinc-400'}
         `}
             >
                 {label}

@@ -3,6 +3,7 @@ import * as z from "zod"
 import {LoginSchema} from "@/schemas";
 import { signIn} from "@/auth";
 import {AuthError} from "next-auth";
+import {DEFAULT_LOGIN_REDIRECT} from "@/routes";
 
 
 export const login = async (values: z.infer<typeof LoginSchema>) => {
@@ -19,7 +20,7 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
         await signIn("credentials",{
             email,
             password,
-            redirectTo:  "/"
+            redirectTo:  DEFAULT_LOGIN_REDIRECT
         } )
     }catch (error){
         if (error instanceof AuthError){

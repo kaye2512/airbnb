@@ -23,6 +23,8 @@ import useRegisterModal from "@/hooks/use-register-modal";
 import {useRouter} from "next/navigation";
 import {FormData} from "@/types/types";
 import InputRent from "@/components/ui/input-rent";
+import {signIn} from "next-auth/react";
+import {DEFAULT_LOGIN_REDIRECT} from "@/routes";
 
 const LoginModal = () => {
 
@@ -64,6 +66,14 @@ const LoginModal = () => {
 
     }
 
+
+    const onClick = (provider:"google" | "github") => {
+        signIn(provider, {
+            callbackUrl: DEFAULT_LOGIN_REDIRECT,
+        })
+    }
+
+
     const onToggle = useCallback(() => {
         loginModal.onClose();
         registerModal.onOpen();
@@ -72,8 +82,8 @@ const LoginModal = () => {
     const bodyContent = (
         <div className="flex flex-col gap-4">
             <Heading
-                title="Welcome back"
-                subtitle="Login to your account!"
+                title="Bienvenue"
+                subtitle="Connectez-vous!"
             />
             <InputRent
                 id="email"
@@ -100,15 +110,13 @@ const LoginModal = () => {
                 outline
                 label="Continue with Google"
                 icon={FcGoogle}
-                onClick={() => {
-                }}
+                onClick={() => onClick("google")}
             />
             <Rental_button
                 outline
                 label="Continue with Github"
                 icon={AiFillGithub}
-                onClick={() => {
-                }}
+                onClick={() => onClick("github")}
             />
             <div
                 className="

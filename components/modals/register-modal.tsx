@@ -27,6 +27,7 @@ const RegisterModal = () => {
     const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
 
+
     const {
         register,
         handleSubmit,
@@ -74,8 +75,8 @@ const RegisterModal = () => {
     const bodyContent = (
         <div className="flex flex-col gap-4">
             <Heading
-                title="Welcome to Airbnb"
-                subtitle="Create an account!"
+                title="Bienvenue sur airbnb"
+                subtitle="Créer un compte!"
             />
             <InputRent
                 id="name"
